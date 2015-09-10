@@ -1,2 +1,4 @@
-# fyber_challenge2
-Fyber Challenge: Help the R­Project
+#Fyber Challenge: Help the R­Project
+
+##Technology
+Ruby + Sinatra + sqlite.
