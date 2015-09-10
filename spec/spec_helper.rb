@@ -8,7 +8,9 @@ require File.expand_path '../../application.rb', __FILE__
 
 module RSpecConfig
   include Rack::Test::Methods
-  def application() Sinatra::Application end
+  def application
+    Sinatra::Application
+  end
 end
 
 RSpec.configure { |c| c.include RSpecConfig }

@@ -1,0 +1,6 @@
+test:
+  adapter: sqlite3
+  database: db/fyber_challenge_test
+development:
+  adapter: sqlite3
+  database: db/fyber_challange_development

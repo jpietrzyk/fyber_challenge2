@@ -4,17 +4,14 @@ LineLength:
 MethodLength:
   Max: 30
 
-SymbolName:
-  AllowCamelCase: false
-
 Documentation:
   Enabled: false
 
 AllCops:
-  Includes:
+  Include:
     - Rakefile
     - Gemfile
     - config.ru
-  Excludes:
-    - lib/public/**
-    - build/**
+  Exclude:
+    - lib/public/**/*
+    - build/**/*
