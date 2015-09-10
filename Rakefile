@@ -38,3 +38,13 @@ RSpec::Core::RakeTask.new(:system) do |t|
   t.pattern = FileList['spec/system/**/*_spec.rb']
   t.rspec_opts = get_rspec_flags('system')
 end
+
+namespace :db do
+  desc 'migrate your database'
+  task :migrate do
+    require 'bundler'
+    Bundler.require
+    require './config/environment'
+    ActiveRecord::Migrator.migrate('db/migrate')
+  end
+end

@@ -9,6 +9,9 @@ gem 'thin'
 # gem 'zurb-foundation'
 # gem 'compass'
 
+gem 'activerecord', require: 'active_record'
+gem 'sqlite3'
+
 group :application do
   # Here should be all the specifics for the application
 end
