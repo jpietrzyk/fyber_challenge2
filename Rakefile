@@ -5,15 +5,13 @@ require 'rspec/core/rake_task'
 
 task default: :build
 
-task build: [:clean, :prepare, :quality, :unit, :system]
+task build: [:clean, :prepare, :unit, :system, :quality]
 
 desc 'Runs standard build activities.'
 task build_full: [:build]
 
-desc 'Runs quality checks.'
-task quality: [:rubocop]
-
-# Rubocop::RakeTask.new(:ruby)
+desc 'Code quality check'
+RuboCop::RakeTask.new(:quality)
 
 desc 'Removes the build directory.'
 task :clean do
