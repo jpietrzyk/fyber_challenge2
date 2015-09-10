@@ -43,3 +43,9 @@ guard 'livereload' do
   # Rails Assets Pipeline #TODO configure this
   watch(%r{(lib/assets/\w+/(.+\.(scss|css|js|html))).*}) { |m| "/assets/#{m[3]}" }
 end
+
+group :server do
+  guard :shotgun do
+    watch(/.+/) # watch *every* file in the directory
+  end
+end

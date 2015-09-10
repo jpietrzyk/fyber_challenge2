@@ -13,7 +13,7 @@ task build_full: [:build]
 desc 'Runs quality checks.'
 task quality: [:rubocop]
 
-Rubocop::RakeTask.new
+# Rubocop::RakeTask.new(:ruby)
 
 desc 'Removes the build directory.'
 task :clean do

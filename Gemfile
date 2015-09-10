@@ -10,7 +10,7 @@ gem 'thin'
 # gem 'compass'
 
 group :application do
-    # Here should be all the specifics for the application
+  # Here should be all the specifics for the application
 end
 
 group :test do
@@ -25,6 +25,6 @@ group :development do
   gem 'guard-rspec'
   gem 'guard-rubocop'
   gem 'guard-livereload'
-  gem 'guard-shotgun', :git => 'https://github.com/rchampourlier/guard-shotgun.git'
+  gem 'guard-shotgun', git: 'https://github.com/rchampourlier/guard-shotgun.git'
   gem 'blam'
 end
