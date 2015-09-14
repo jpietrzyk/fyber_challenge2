@@ -15,3 +15,18 @@ require 'models'
 require 'helpers'
 require 'jobs'
 include Tools
+
+
+get '/packages' do
+  @packages = Package.all
+end
+
+get '/packages/:id' do
+  @package = Package.where(id: params[:id]).first
+  if @package
+    @package_versions = @package.package_versions if @package
+  else
+    @message = "Package not found"
+    @packages = Package.all
+  end
+end
