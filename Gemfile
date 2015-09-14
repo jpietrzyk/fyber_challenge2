@@ -1,13 +1,9 @@
 source 'https://rubygems.org'
-ruby '2.1.2'
+ruby '2.2.2'
 
 gem 'sinatra'
 gem 'sinatra-contrib', require: %w(sinatra/config_file)
 gem 'thin'
-# gem 'slim'
-# gem 'sinatra-assetpack'
-# gem 'zurb-foundation'
-# gem 'compass'
 
 gem 'activerecord', require: 'active_record'
 gem 'sqlite3'
