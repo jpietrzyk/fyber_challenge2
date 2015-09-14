@@ -9,9 +9,9 @@ gem 'activerecord', require: 'active_record'
 gem 'sqlite3'
 
 # for remote
-gem "httparty"
+gem 'httparty'
 # for reading info hashes
-gem "treetop-dcf"
+gem 'treetop-dcf'
 
 group :application do
   # Here should be all the specifics for the application
