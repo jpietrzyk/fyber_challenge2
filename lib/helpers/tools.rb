@@ -1,6 +1,6 @@
 module Tools
 	
-	def package_info(name, version, package)
+	def get_info_from_package(name, version, package)
 		pkg_url = "#{settings.srv_url}#{name}_#{version}.tar.gz"
 		desc_path = "#{name}/DESCRIPTION"
 		begin

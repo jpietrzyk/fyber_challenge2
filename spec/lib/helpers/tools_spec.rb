@@ -15,7 +15,7 @@ describe "Tools" do
 		end
 		it "should get package and create version" do
 			pkg = Package.new
-			application.package_info("ACD", "1.5.3", pkg)
+			application.get_info_from_package("ACD", "1.5.3", pkg)
 		end
 	end
 
