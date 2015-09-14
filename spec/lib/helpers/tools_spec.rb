@@ -24,4 +24,14 @@ describe 'Tools' do
       expect(pkg.reload.package_versions.empty?).to eq(false)
     end
   end
+
+  describe 'all_packages' do
+    before do
+      response_object = Net::HTTPOK.new('1.1', 200, 'OK')
+      allow(response_object).to receive_messages(body: {})
+    end
+    it 'return all packages' do
+      expect { |block| application.all_packages(&block) }.to yield_control
+    end
+  end
 end

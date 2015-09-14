@@ -23,4 +23,10 @@ module Tools
     end
   end
 
+  def all_packages
+    response = HTTParty.get(settings.packages_list_url)
+    packages = response.body.split("\n\n")
+    yield Dcf.parse packages[0..num_of_packages].join("\n\n")
+  end
+
 end
