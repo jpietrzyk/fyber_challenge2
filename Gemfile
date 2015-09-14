@@ -8,6 +8,11 @@ gem 'thin'
 gem 'activerecord', require: 'active_record'
 gem 'sqlite3'
 
+# for remote
+gem "httparty"
+# for reading info hashes
+gem "treetop-dcf"
+
 group :application do
   # Here should be all the specifics for the application
 end
