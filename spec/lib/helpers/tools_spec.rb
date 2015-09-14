@@ -11,7 +11,7 @@ describe 'Tools' do
   describe 'package_info' do
     it 'should get package and create version' do
       pkg = Package.new
-      application.get_info_from_package('ACD', '1.5.3', pkg)
+      application.get_info_from_package('ACD', '1.5.3', pkg, application.settings)
     end
   end
 
@@ -31,7 +31,7 @@ describe 'Tools' do
       allow(response_object).to receive_messages(body: {})
     end
     it 'return all packages' do
-      expect { |block| application.all_packages(&block) }.to yield_control
+      expect { |block| application.all_packages(application.settings, &block) }.to yield_control
     end
   end
 end

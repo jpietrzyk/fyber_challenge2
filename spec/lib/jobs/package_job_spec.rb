@@ -23,7 +23,7 @@ describe 'Jobs::PackageJob' do
       end
       context "package version doesnt exist" do
         it 'create new package version' do
-          Jobs::PackageJob.run
+          Jobs::PackageJob.run application.settings
         end
       end
     end
@@ -34,7 +34,7 @@ describe 'Jobs::PackageJob' do
         expect(Package).to receive(:create)
       end
       it 'create package' do
-        Jobs::PackageJob.run
+        Jobs::PackageJob.run application.settings
       end
     end
   end
