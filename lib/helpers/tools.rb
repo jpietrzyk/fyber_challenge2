@@ -2,7 +2,6 @@ module Tools
   def get_info_from_package(name, version, package, settings)
     pkg_url = "#{settings.srv_url}#{name}_#{version}.tar.gz"
     desc_path = "#{name}/DESCRIPTION"
-    p pkg_url
     begin
       open(pkg_url) do |remote|
         tar = Gem::Package::TarReader.new(Zlib::GzipReader.open(remote))

@@ -9,9 +9,11 @@ module Jobs
           version = package['Version']
 
           pkg = Package.where(name: name).first
-          if pkg && pkg.package_versions.where(version: version).empty?
-            # package version doesn't exist - so should create
-            get_info_from_package(name, version, pkg, settings)
+          if pkg
+            unless pkg.package_versions.where(version: version).any?
+              # package version doesn't exist - so should create
+              get_info_from_package(name, version, pkg, settings)
+            end
           else
             # package doesn't exist
             pkg = Package.create(name: name)
