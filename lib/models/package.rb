@@ -15,6 +15,7 @@ class Package < ActiveRecord::Base
     authors = get_authors(package_details['Author'])
     version.authors << authors
     version.maintainer = get_maintainer(package_details['Maintainer'])
+    version.save!
   end
 
   private
