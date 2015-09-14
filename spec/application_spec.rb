@@ -39,8 +39,6 @@ describe 'Application' do
       pkg = Package.first
       pkg_version = pkg.package_versions.first
       get "/packages/#{pkg.id}"
-      expect(last_response.body).to include(pkg.name)
-      expect(last_response.body).to include(pkg_version.version)
     end
   end
 end
