@@ -49,3 +49,8 @@ namespace :db do
     ActiveRecord::Migrator.migrate('db/migrate')
   end
 end
+
+task :refresh_packages do
+  require  "./application"
+  Jobs::PackageJob.run settings
+end

@@ -19,11 +19,11 @@ describe 'Jobs::PackageJob' do
       before do
         pkg = Package.new
         allow(Package).to receive_message_chain(:where, :first).and_return(pkg)
-        allow(pkg).to receive_message_chain(:package_versions, :where, :empty?).and_return(false)
+        allow(pkg).to receive_message_chain(:package_versions, :where, :any?).and_return(false)
       end
       context "package version doesnt exist" do
         it 'create new package version' do
-          Jobs::PackageJob.run
+          Jobs::PackageJob.run application.settings
         end
       end
     end
@@ -34,7 +34,7 @@ describe 'Jobs::PackageJob' do
         expect(Package).to receive(:create)
       end
       it 'create package' do
-        Jobs::PackageJob.run
+        Jobs::PackageJob.run application.settings
       end
     end
   end

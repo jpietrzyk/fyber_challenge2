@@ -1,5 +1,5 @@
 module Tools
-  def get_info_from_package(name, version, package)
+  def get_info_from_package(name, version, package, settings)
     pkg_url = "#{settings.srv_url}#{name}_#{version}.tar.gz"
     desc_path = "#{name}/DESCRIPTION"
     begin
@@ -23,7 +23,7 @@ module Tools
     end
   end
 
-  def all_packages
+  def all_packages(settings)
     response = HTTParty.get(settings.packages_list_url)
     packages = response.body.split("\n\n")
     yield Dcf.parse packages[0..settings.num_of_packages].join("\n\n")
