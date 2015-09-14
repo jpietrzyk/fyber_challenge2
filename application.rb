@@ -13,4 +13,5 @@ require_relative 'config/config'
 require_relative 'config/environment.rb'
 require 'models'
 require 'helpers'
+require 'jobs'
 include Tools
