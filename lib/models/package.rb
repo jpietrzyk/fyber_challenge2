@@ -8,12 +8,13 @@ class Package < ActiveRecord::Base
     version.publication_date = package_details['Date/Publication']
     version.title = package_details['Title']
     # maybe for future we need another join table for dependencies (so we can make a link in view)
-    version.dependencies = package_details['Dependencies']
+    version.dependencies = package_details['Depends']
     version.description = package_details['Description']
     version.repository = package_details['Repository']
     version.license = package_details['License']
     authors = get_authors(package_details['Author'])
     version.authors << authors
+    version.maintainer = get_maintainer(package_details['Maintainer'])
   end
 
   private
@@ -26,5 +27,10 @@ class Package < ActiveRecord::Base
       authors << author
     end
     authors
+  end
+
+  def get_maintainer(maintainer_string)
+    maintainer_name, maintainer_email = maintainer_string.match(/(?:"?([^"]*)"?\s)?(?:<?(.+@[^>]+)>?)/i).captures
+    Author.find_or_create_by(name: maintainer_name, email: maintainer_email)
   end
 end
