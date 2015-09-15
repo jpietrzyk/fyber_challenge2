@@ -21,17 +21,6 @@ OpenURI::Buffer.const_set 'StringMax', 0
 include Tools
 
 get '/packages' do
-  @packages = Package.all
+  @package_versions = PackageVersion.all
   haml :index
-end
-
-get '/packages/:id' do
-  @package = Package.where(id: params[:id]).first
-  if @package
-    @package_versions = @package.package_versions if @package
-    haml :show
-  else
-    @packages = Package.all
-    haml :index
-  end
 end
