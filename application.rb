@@ -5,6 +5,7 @@ require 'active_record'
 require 'open-uri'
 require 'rubygems/package'
 require 'dcf'
+require 'haml'
 $LOAD_PATH << File.join(File.dirname(File.realpath(__FILE__)), 'lib')
 $ROOT = File.dirname(File.realpath(__FILE__))
 require 'db_config'
@@ -21,14 +22,16 @@ include Tools
 
 get '/packages' do
   @packages = Package.all
+  haml :index
 end
 
 get '/packages/:id' do
   @package = Package.where(id: params[:id]).first
   if @package
     @package_versions = @package.package_versions if @package
+    haml :show
   else
-    @message = 'Package not found'
     @packages = Package.all
+    haml :index
   end
 end
