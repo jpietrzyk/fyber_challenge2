@@ -14,7 +14,7 @@ gem 'treetop-dcf'
 
 gem 'haml'
 
-gem 'whenever', :require => false
+gem 'whenever', require: false
 
 group :application do
   # Here should be all the specifics for the application
