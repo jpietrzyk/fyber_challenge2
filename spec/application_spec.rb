@@ -22,7 +22,7 @@ describe 'Application' do
 
   describe 'GET /packages' do
     it 'show all packages' do
-      get '/packages'
+      get '/'
       expect(last_response.status).to be(200)
     end
   end

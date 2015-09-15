@@ -20,7 +20,7 @@ OpenURI::Buffer.send :remove_const, 'StringMax' if OpenURI::Buffer.const_defined
 OpenURI::Buffer.const_set 'StringMax', 0
 include Tools
 
-get '/packages' do
+get '/' do
   @package_versions = PackageVersion.all
   haml :index
 end
