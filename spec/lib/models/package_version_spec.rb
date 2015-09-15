@@ -1,5 +1,4 @@
 require File.expand_path '../../../spec_helper.rb', __FILE__
-ENV['RACK_ENV'] = 'test'
 
 describe PackageVersion.new(version: '1.6',
                             publication_date: '18-12-1982 00:00:00',

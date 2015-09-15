@@ -1,5 +1,4 @@
 require File.expand_path '../../../spec_helper.rb', __FILE__
-ENV['RACK_ENV'] = 'test'
 
 describe Author.new(name: 'Test author', email: 'testauthor@domain.com') do
   context 'schema' do

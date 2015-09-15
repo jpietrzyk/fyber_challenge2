@@ -2,12 +2,7 @@ require File.expand_path '../../../spec_helper.rb', __FILE__
 ENV['RACK_ENV'] = 'test'
 
 describe 'Jobs::PackageJob' do
-  include Rack::Test::Methods
   include Tools
-
-  def application
-    Sinatra::Application
-  end
   describe 'run' do
     before do
       packages = [{ 'Package' => 'ACD', 'Version' => '1.5.3', 'Depends' => 'R(>= 2.13.0)', 'License' => 'GPL (>= 2)', 'NeedsCompilation' => 'no' }]

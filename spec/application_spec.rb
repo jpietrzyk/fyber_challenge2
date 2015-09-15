@@ -1,12 +1,6 @@
 require File.expand_path '../spec_helper.rb', __FILE__
-require 'rack/test'
-
-RSpec.configure do |config|
-  config.include Rack::Test::Methods
-end
 
 describe 'Application' do
-  include Rack::Test::Methods
   include Tools
 
   def app
@@ -28,17 +22,8 @@ describe 'Application' do
 
   describe 'GET /packages' do
     it 'show all packages' do
-      # pkg = Package.first
-      # pkg_version = pkg.package_versions.first
       get '/packages'
-    end
-  end
-
-  describe 'GET /packages/:package_id' do
-    it 'shows package info' do
-      pkg = Package.first
-      # pkg_version = pkg.package_versions.first
-      get "/packages/#{pkg.id}"
+      expect(last_response.status).to be(200)
     end
   end
 end
