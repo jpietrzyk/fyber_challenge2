@@ -19,7 +19,6 @@ OpenURI::Buffer.send :remove_const, 'StringMax' if OpenURI::Buffer.const_defined
 OpenURI::Buffer.const_set 'StringMax', 0
 include Tools
 
-
 get '/packages' do
   @packages = Package.all
 end
@@ -29,7 +28,7 @@ get '/packages/:id' do
   if @package
     @package_versions = @package.package_versions if @package
   else
-    @message = "Package not found"
+    @message = 'Package not found'
     @packages = Package.all
   end
 end

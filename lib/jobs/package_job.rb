@@ -2,7 +2,7 @@ require_relative '../helpers/tools'
 include Tools
 module Jobs
   class PackageJob
-    def self.run settings
+    def self.run(settings)
       all_packages(settings) do |packages|
         packages.each do |package|
           name = package['Package']
