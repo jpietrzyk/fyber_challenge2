@@ -12,6 +12,8 @@ gem 'httparty'
 # for reading info hashes
 gem 'treetop-dcf'
 
+gem 'haml'
+
 group :application do
   # Here should be all the specifics for the application
 end

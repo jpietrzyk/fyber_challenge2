@@ -1,0 +1,25 @@
+%table
+  %thead
+    %tr
+      %th Package
+      %th Version
+      %th Authors
+      %th Maintainer
+      %th Publication Date
+  %tbody
+    - @packages.each do |package|
+      - package_version = package.package_versions.last
+      - if package_version
+        %tr 
+          %td 
+            %a{href:"/packages/#{package.id}"}= package.name
+          %td= package_version.version
+          %td
+            - package_version.authors.each do |author|
+              = author.name
+          %td
+            = package_version.maintainer.name
+            = package_version.maintainer.email
+          %td= package_version.publication_date.strftime("%Y-%m-%d %I:%M:%S")
+- if @packages.empty?
+  %div No packages in db

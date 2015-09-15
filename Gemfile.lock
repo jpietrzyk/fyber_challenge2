@@ -69,6 +69,8 @@ GEM
     guard-rubocop (1.2.0)
       guard (~> 2.0)
       rubocop (~> 0.20)
+    haml (4.0.7)
+      tilt
     hitimes (1.2.2)
     http-cookie (1.0.2)
       domain_name (~> 0.5)
@@ -185,6 +187,7 @@ DEPENDENCIES
   guard-rspec
   guard-rubocop
   guard-shotgun!
+  haml
   httparty
   rake
   rspec
