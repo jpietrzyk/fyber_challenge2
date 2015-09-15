@@ -12,15 +12,14 @@ class Package < ActiveRecord::Base
     version.description = package_details['Description']
     version.repository = package_details['Repository']
     version.license = package_details['License']
-    authors = get_authors(package_details['Author'])
-    version.authors << authors
-    version.maintainer = get_maintainer(package_details['Maintainer'])
+    version.authors << authors(package_details['Author'])
+    version.maintainer = maintainer(package_details['Maintainer'])
     version.save!
   end
 
   private
 
-  def get_authors(authors_string)
+  def authors(authors_string)
     author_names = authors_string.split(/, | and /)
     authors = []
     author_names.each do |author_name|
@@ -30,8 +29,13 @@ class Package < ActiveRecord::Base
     authors
   end
 
-  def get_maintainer(maintainer_string)
-    maintainer_name, maintainer_email = maintainer_string.match(/(?:"?([^"]*)"?\s)?(?:<?(.+@[^>]+)>?)/i).captures
+  def maintainer(maintainer_string)
+    begin
+      maintainer_name, maintainer_email = maintainer_string.match(/(?:"?([^"]*)"?\s)?(?:<?(.+@[^>]+)>?)/i).captures
+    rescue
+      p 'No maintainer in package details'
+      return nil
+    end
     Author.find_or_create_by(name: maintainer_name, email: maintainer_email)
   end
 end
