@@ -5,7 +5,7 @@ require 'active_record'
 require 'open-uri'
 require 'rubygems/package'
 require 'dcf'
-require 'haml'
+require 'tilt/haml'
 $LOAD_PATH << File.join(File.dirname(File.realpath(__FILE__)), 'lib')
 $ROOT = File.dirname(File.realpath(__FILE__))
 require 'db_config'
