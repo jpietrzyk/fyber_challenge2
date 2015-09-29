@@ -16,6 +16,10 @@ require 'models'
 require 'helpers'
 require 'jobs'
 
+after do
+	  ActiveRecord::Base.clear_active_connections!
+end  
+
 OpenURI::Buffer.send :remove_const, 'StringMax' if OpenURI::Buffer.const_defined?('StringMax')
 OpenURI::Buffer.const_set 'StringMax', 0
 include Tools
