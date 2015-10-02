@@ -14,7 +14,7 @@ gem 'treetop-dcf'
 
 gem 'haml'
 
-gem 'whenever', require: false
+gem 'sidetiq'
 
 group :application do
   # Here should be all the specifics for the application
@@ -24,6 +24,7 @@ group :test do
   gem 'rspec'
   gem 'coveralls'
   gem 'rubocop'
+  gem 'timecop'
 end
 
 group :development do
