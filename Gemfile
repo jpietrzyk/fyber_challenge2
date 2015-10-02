@@ -22,7 +22,7 @@ end
 
 group :test do
   gem 'rspec'
-  gem 'coveralls'
+  gem 'coveralls', require: false
   gem 'rubocop'
   gem 'timecop'
 end

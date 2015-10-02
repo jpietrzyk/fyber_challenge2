@@ -1,6 +1,6 @@
 test:
   adapter: sqlite3
-  database: db/fyber_challenge_test
+  database: "db/fyber_challenge_test"
 development:
   adapter: sqlite3
   database: db/fyber_challenge_development
