@@ -1,4 +1,16 @@
+sudo: false
+cache: bundler
 language: ruby
+matrix:
+  allow_failures:
+    - rvm: ruby-head
+    - rvm: rbx-2
+  fast_finish: true
+before_install: gem update --remote bundler
+install:
+  - bundle install --retry=3
 rvm:
   - 2.2.2
-script: bundle exec rspec spec
+script:
+  - bundle exec rspec
+  - bundle exec rubocop
