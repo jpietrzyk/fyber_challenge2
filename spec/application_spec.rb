@@ -15,8 +15,14 @@ describe 'Application' do
         authors << Author.create(name: "Author #{a}")
       end
       maintainer = authors.first
-      pkg.package_versions.create!(version: '2.3', description: 'Package description', title: 'Package title', publication_date: Time.now,
-                                   authors: authors, maintainer: maintainer)
+      pkg.package_versions.create!(
+        version: '2.3',
+        description: 'Package description',
+        title: 'Package title',
+        publication_date: Time.now,
+        authors: authors,
+        maintainer: maintainer
+      )
     end
   end
 
