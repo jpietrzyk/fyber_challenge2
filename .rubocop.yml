@@ -15,9 +15,9 @@ Metrics/AbcSize:
 
 AllCops:
   Include:
-    - Rakefile
-    - Gemfile
-    - config.ru
+    - '**/Rakefile'
+    - '**/Gemfile'
+    - '**/config.ru'
   Exclude:
     - lib/public/**/*
     - build/**/*
