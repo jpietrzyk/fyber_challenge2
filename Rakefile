@@ -48,4 +48,12 @@ namespace :db do
     require './config/environment'
     ActiveRecord::Migrator.migrate('db/migrate')
   end
+  desc 'create your database'
+  task :create do
+    require 'bundler'
+    Bundler.require
+    require './lib/db_config'
+    require './config/environment'
+    ActiveRecord::Migrator.migrate('db/create')
+  end
 end

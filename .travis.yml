@@ -11,6 +11,9 @@ install:
   - bundle install --retry=3
 rvm:
   - 2.2.2
+before_script:
+  - cp config/database.travis.yml config/database.yml
+  - bundle exec rake db:create db:migrate
 script:
   - bundle exec rspec
   - bundle exec rubocop

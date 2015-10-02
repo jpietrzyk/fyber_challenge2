@@ -1,5 +1,7 @@
 # Encoding: utf-8
 
+require 'coveralls'
+Coveralls.wear!
 require 'rack/test'
 require 'rspec'
 require 'rspec/mocks'
