@@ -1,3 +1,4 @@
 build/
 db/fyber_challenge_development
 db/fyber_challenge_test
+coverage
