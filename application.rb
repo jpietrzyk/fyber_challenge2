@@ -15,6 +15,7 @@ require_relative 'config/environment.rb'
 require 'models'
 require 'helpers'
 require 'jobs'
+require 'workers'
 
 after do
   ActiveRecord::Base.clear_active_connections!
